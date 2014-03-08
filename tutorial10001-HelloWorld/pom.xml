@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.getgnosis.tutorials</groupId>
+  <artifactId>tutorial10001</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>tutorial10001-HelloWorld </name>
+  <description>A Scala Hello World Example</description>
+  
+	<properties>
+	  <scala.version>2.11.0-M8</scala.version>
+	 	<java.version>1.7</java.version>
+	 	<maven.compiler.version>3.1</maven.compiler.version>
+	 	<scala.compiler.version>3.1.6</scala.compiler.version>
+	</properties>
+
+	<dependencies>
+	  <dependency>
+	  	<groupId>org.scala-lang</groupId>
+	  	<artifactId>scala-library</artifactId>
+	    <version>${scala.version}</version>
+	  </dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+		  <plugins>
+		    <plugin>
+		      <groupId>net.alchim31.maven</groupId>
+		      <artifactId>scala-maven-plugin</artifactId>
+		      <version>${scala.compiler.version}</version>
+		      <configuration>
+		        <recompileMode>incremental</recompileMode>
+		        <args>
+		          <arg>-target:jvm-${java.version}</arg>
+		        </args>
+		        <javacArgs>
+		          <javacArg>-source</javacArg><javacArg>${java.version}</javacArg>
+		          <javacArg>-target</javacArg><javacArg>${java.version}</javacArg>
+		        </javacArgs>
+		      </configuration>
+		    </plugin>
+		    <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+		    <plugin>
+		    	<groupId>org.eclipse.m2e</groupId>
+		    	<artifactId>lifecycle-mapping</artifactId>
+		    	<version>1.0.0</version>
+		    	<configuration>
+		    		<lifecycleMappingMetadata>
+		    			<pluginExecutions>
+		    				<pluginExecution>
+		    					<pluginExecutionFilter>
+		    						<groupId>net.alchim31.maven</groupId>
+		    						<artifactId>
+		    							scala-maven-plugin
+		    						</artifactId>
+		    						<versionRange>[3.1.6,)</versionRange>
+		    						<goals>
+		    							<goal>compile</goal>
+		    						</goals>
+		    					</pluginExecutionFilter>
+		    					<action>
+		    						<ignore></ignore>
+		    					</action>
+		    				</pluginExecution>
+		    			</pluginExecutions>
+		    		</lifecycleMappingMetadata>
+		    	</configuration>
+		    </plugin>
+		  </plugins>
+		</pluginManagement>	
+	
+	  <plugins>
+	    <plugin>
+	      <groupId>net.alchim31.maven</groupId>
+	      <artifactId>scala-maven-plugin</artifactId>
+	      <executions>
+	        <execution>
+	          <id>scala-compile</id>
+	          <goals>
+	            <goal>compile</goal>
+	          </goals>
+	        </execution>
+	        <execution>
+	          <id>scala-test-compile</id>
+	          <goals>
+	            <goal>testCompile</goal>
+	          </goals>
+	        </execution>
+	      </executions>
+	    </plugin>
+	    
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>${maven.compiler.version}</version>
+          <configuration>
+	        	<source>${java.version}</source>
+	        	<target>${java.version}</target>
+        	</configuration>
+	      <executions>
+	        <execution>
+	          <id>default-compile</id>
+	          <phase>none</phase>
+	        </execution>
+	        <execution>
+	          <id>default-testCompile</id>
+	          <phase>none</phase>
+	        </execution>
+	      </executions>
+	    </plugin>
+	  </plugins>
+	</build>  
+  
+</project>
