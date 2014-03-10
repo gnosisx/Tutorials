@@ -27,11 +27,7 @@ public class AdvancedHelloWorldTest {
 	 */
 	@Test
 	public void testAdvancedHelloWorld() {
-		try {
 			new AdvancedHelloWorld();
-		} catch (Exception e) {
-			fail("Construction failed. ");
-		}
 	}
 
 	/**
@@ -41,11 +37,21 @@ public class AdvancedHelloWorldTest {
 	 */
 	@Test
 	public void testMain() {
+		
+		final String expected = "Hello World!" + System.getProperty("line.separator");
+		
 		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	    System.setOut(new PrintStream(outContent));
-	    AdvancedHelloWorld.main(null);
-	    assertEquals("Hello World!" + System.getProperty("line.separator"), outContent.toString());
-	    System.setOut(null);
+		
+	    
+	    try {	
+	    	System.setOut(new PrintStream(outContent));
+	    	AdvancedHelloWorld.main(null);
+	    	assertEquals(expected, outContent.toString());
+	    } catch (Exception e) {
+	    	fail(e.toString());
+	    } finally {
+	    	System.setOut(null);	
+	    }
 	}
 
 	/**

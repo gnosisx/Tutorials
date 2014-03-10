@@ -13,19 +13,8 @@ package com.getgnosis.tutorials.tutorial01001;
  */
 public class AdvancedHelloWorld {
 	
-	static {
-		message = "Hello World!";
-	}
+	private final static String message = "Hello World!";	
 	
-	/**
-	 * The {@link String} instance representing the message to be displayed.
-	 */
-	private final static String message;	
-	
-	/**
-	 * The default constructor.  Initializes the value of message via the 
-	 * static block.
-	 */
 	public AdvancedHelloWorld() {}
 
 	/**
@@ -51,12 +40,6 @@ public class AdvancedHelloWorld {
 		return builder.toString();
 	}
 
-	/**
-	 * Returns {@link String} instance representing the message to be displayed. 
-	 * 
-	 * @return message - {@link String} instance representing the message to 
-	 * be displayed.
-	 */
 	private final String getMessage() {
 		return message;
 	}
