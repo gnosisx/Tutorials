@@ -66,14 +66,10 @@ public class HelloWorldTest {
     public final void testMain() throws IOException {
 
         final PrintStream currentStream = System.out; // $codepro.audit.disable unusedAssignment
+        final ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        final BufferedOutputStream bufferedStream = new BufferedOutputStream(byteStream);
+        final PrintStream testStream = new PrintStream(bufferedStream);
 
-        ByteArrayOutputStream byteStream = null;
-        BufferedOutputStream bufferedStream = null;
-        PrintStream testStream = null;
-
-        byteStream = new ByteArrayOutputStream(); // $codepro.audit.disable unusedAssignment
-        bufferedStream = new BufferedOutputStream(byteStream); // $codepro.audit.disable unusedAssignment
-        testStream = new PrintStream(bufferedStream); // $codepro.audit.disable unusedAssignment
         System.setOut(testStream);
 
         try {

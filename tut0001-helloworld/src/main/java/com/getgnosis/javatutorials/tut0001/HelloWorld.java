@@ -7,7 +7,7 @@
 package com.getgnosis.javatutorials.tut0001;
 
 /**
- * TODO Document HelloWorld.
+ * This is a simple Hello World example project.
  *
  * @author gnosis
  * @version 1.0.0
